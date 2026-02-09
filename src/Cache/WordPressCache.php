@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\Cache;
+namespace LicensesOS\Cache;
 
 /**
  * WordPress transients cache adapter.
@@ -17,7 +17,7 @@ class WordPressCache implements CacheInterface
     /**
      * @param string $prefix Prefix for all cache keys (e.g., your plugin slug)
      */
-    public function __construct(string $prefix = 'licenseos')
+    public function __construct(string $prefix = 'licensesos')
     {
         $this->prefix = $prefix;
     }

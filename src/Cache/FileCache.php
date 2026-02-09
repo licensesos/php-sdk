@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\Cache;
+namespace LicensesOS\Cache;
 
 /**
  * File-based cache adapter.
@@ -19,7 +19,7 @@ class FileCache implements CacheInterface
      * @param string $directory Directory to store cache files
      * @param string $prefix Prefix for cache files
      */
-    public function __construct(string $directory, string $prefix = 'licenseos')
+    public function __construct(string $directory, string $prefix = 'licensesos')
     {
         $this->directory = rtrim($directory, '/\\');
         $this->prefix = $prefix;

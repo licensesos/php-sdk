@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\Cache;
+namespace LicensesOS\Cache;
 
 /**
  * Simple cache interface for storing license validation results.

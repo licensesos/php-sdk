@@ -1,6 +1,6 @@
-# LicenseOS PHP SDK
+# LicensesOS PHP SDK
 
-A PHP SDK for integrating with the LicenseOS license management API. Provides license validation, activation, and deactivation with built-in caching and WordPress integration.
+A PHP SDK for integrating with the LicensesOS license management API. Provides license validation, activation, and deactivation with built-in caching and WordPress integration.
 
 ## Requirements
 
@@ -16,9 +16,9 @@ composer require licenseos/php-sdk
 ## Quick Start
 
 ```php
-use LicenseOS\LicenseOsClient;
+use LicensesOS\LicensesOsClient;
 
-$client = new LicenseOsClient('your_api_key');
+$client = new LicensesOsClient('your_api_key');
 
 // Validate a license
 $result = $client->validate('LIC-XXXX-XXXX-XXXX-XXXX', 'example.com');
@@ -148,7 +148,7 @@ $client->validate($key, 'münchen.de'); // becomes "xn--mnchen-3ya.de"
 You can also normalize domains manually:
 
 ```php
-$normalized = LicenseOsClient::normalizeDomain('https://www.Example.COM/page');
+$normalized = LicensesOsClient::normalizeDomain('https://www.Example.COM/page');
 // Returns: "example.com"
 ```
 
@@ -159,11 +159,11 @@ The SDK includes a caching layer for reduced API calls and offline tolerance.
 ### Basic Caching
 
 ```php
-use LicenseOS\LicenseOsClient;
-use LicenseOS\Cache\LicenseCache;
-use LicenseOS\Cache\FileCache;
+use LicensesOS\LicensesOsClient;
+use LicensesOS\Cache\LicenseCache;
+use LicensesOS\Cache\FileCache;
 
-$client = new LicenseOsClient('your_api_key');
+$client = new LicensesOsClient('your_api_key');
 $cache = new FileCache('/path/to/cache/dir');
 $licenseCache = new LicenseCache($client, $cache);
 
@@ -196,7 +196,7 @@ $licenseCache = new LicenseCache(
 **FileCache** - Stores cache in JSON files:
 
 ```php
-use LicenseOS\Cache\FileCache;
+use LicensesOS\Cache\FileCache;
 
 $cache = new FileCache('/var/cache/myapp', 'myapp');
 ```
@@ -204,7 +204,7 @@ $cache = new FileCache('/var/cache/myapp', 'myapp');
 **WordPressCache** - Uses WordPress transients:
 
 ```php
-use LicenseOS\Cache\WordPressCache;
+use LicensesOS\Cache\WordPressCache;
 
 $cache = new WordPressCache('my_plugin');
 ```
@@ -212,7 +212,7 @@ $cache = new WordPressCache('my_plugin');
 **Custom Cache** - Implement `CacheInterface`:
 
 ```php
-use LicenseOS\Cache\CacheInterface;
+use LicensesOS\Cache\CacheInterface;
 
 class RedisCache implements CacheInterface
 {
@@ -229,7 +229,7 @@ The SDK includes ready-to-use WordPress integration classes.
 ### Step 1: Create Your License Manager
 
 ```php
-use LicenseOS\WordPress\LicenseManager;
+use LicensesOS\WordPress\LicenseManager;
 
 class MyPluginLicense extends LicenseManager
 {
@@ -263,7 +263,7 @@ class MyPluginLicense extends LicenseManager
 ### Step 2: Create a Settings Page
 
 ```php
-use LicenseOS\WordPress\SettingsPage;
+use LicensesOS\WordPress\SettingsPage;
 
 class MyPluginSettings extends SettingsPage
 {
@@ -354,7 +354,7 @@ The SDK throws two types of exceptions:
 Thrown when the API returns an error response:
 
 ```php
-use LicenseOS\Exceptions\ApiException;
+use LicensesOS\Exceptions\ApiException;
 
 try {
     $result = $client->validate($licenseKey, $domain);
@@ -378,7 +378,7 @@ Common error codes:
 Thrown when unable to connect to the API:
 
 ```php
-use LicenseOS\Exceptions\NetworkException;
+use LicensesOS\Exceptions\NetworkException;
 
 try {
     $result = $client->validate($licenseKey, $domain);
@@ -391,8 +391,8 @@ try {
 ### Graceful Degradation Pattern
 
 ```php
-use LicenseOS\Exceptions\ApiException;
-use LicenseOS\Exceptions\NetworkException;
+use LicensesOS\Exceptions\ApiException;
+use LicensesOS\Exceptions\NetworkException;
 
 function checkLicense(LicenseCache $cache, string $key, string $domain): bool
 {
@@ -493,7 +493,7 @@ function exportData() {
 
 ## API Reference
 
-### LicenseOsClient
+### LicensesOsClient
 
 | Method | Description |
 |--------|-------------|

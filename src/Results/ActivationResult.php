@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\Results;
+namespace LicensesOS\Results;
 
 class ActivationResult
 {

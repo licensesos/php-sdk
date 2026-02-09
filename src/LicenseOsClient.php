@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS;
+namespace LicensesOS;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use LicenseOS\Exceptions\ApiException;
-use LicenseOS\Exceptions\NetworkException;
-use LicenseOS\Results\ActivationResult;
-use LicenseOS\Results\ActivationsResult;
-use LicenseOS\Results\DeactivationResult;
-use LicenseOS\Results\ValidationResult;
+use LicensesOS\Exceptions\ApiException;
+use LicensesOS\Exceptions\NetworkException;
+use LicensesOS\Results\ActivationResult;
+use LicensesOS\Results\ActivationsResult;
+use LicensesOS\Results\DeactivationResult;
+use LicensesOS\Results\ValidationResult;
 
-class LicenseOsClient
+class LicensesOsClient
 {
     private Client $client;
     private string $apiKey;
@@ -21,7 +21,7 @@ class LicenseOsClient
 
     public function __construct(
         string $apiKey,
-        string $baseUrl = 'https://api.licenseos.com'
+        string $baseUrl = 'https://api.licensesos.com'
     ) {
         $this->apiKey = $apiKey;
         $this->baseUrl = rtrim($baseUrl, '/');
@@ -186,7 +186,7 @@ class LicenseOsClient
             }
 
             throw new NetworkException(
-                'Failed to connect to LicenseOS API: ' . $e->getMessage(),
+                'Failed to connect to LicensesOS API: ' . $e->getMessage(),
                 0,
                 $e
             );

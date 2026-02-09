@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS;
+namespace LicensesOS;
 
-use LicenseOS\Results\OfflineValidationResult;
+use LicensesOS\Results\OfflineValidationResult;
 
 class OfflineValidator
 {

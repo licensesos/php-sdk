@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\Cache;
+namespace LicensesOS\Cache;
 
-use LicenseOS\LicenseOsClient;
-use LicenseOS\Results\ValidationResult;
-use LicenseOS\Exceptions\ApiException;
-use LicenseOS\Exceptions\NetworkException;
+use LicensesOS\LicensesOsClient;
+use LicensesOS\Results\ValidationResult;
+use LicensesOS\Exceptions\ApiException;
+use LicensesOS\Exceptions\NetworkException;
 
 /**
  * High-level license caching with offline grace period support.
  *
- * This class wraps the LicenseOsClient and provides intelligent caching:
+ * This class wraps the LicensesOsClient and provides intelligent caching:
  * - Caches validation results to reduce API calls
  * - Supports offline grace periods for better user experience
  * - Automatically refreshes cache when stale
  *
  * Usage:
  * ```php
- * $client = new LicenseOsClient('your_api_key');
+ * $client = new LicensesOsClient('your_api_key');
  * $cache = new WordPressCache('my_plugin');
  * $licenseCache = new LicenseCache($client, $cache);
  *
@@ -31,7 +31,7 @@ use LicenseOS\Exceptions\NetworkException;
  */
 class LicenseCache
 {
-    private LicenseOsClient $client;
+    private LicensesOsClient $client;
     private CacheInterface $cache;
 
     /**
@@ -46,13 +46,13 @@ class LicenseCache
     private int $gracePeriod;
 
     /**
-     * @param LicenseOsClient $client The API client
+     * @param LicensesOsClient $client The API client
      * @param CacheInterface $cache Cache storage implementation
      * @param int $cacheTtl Cache TTL in seconds (default: 12 hours)
      * @param int $gracePeriod Grace period in seconds (default: 48 hours)
      */
     public function __construct(
-        LicenseOsClient $client,
+        LicensesOsClient $client,
         CacheInterface $cache,
         int $cacheTtl = 43200,
         int $gracePeriod = 172800

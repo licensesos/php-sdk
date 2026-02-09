@@ -1,12 +1,12 @@
 {
-    "name": "licenseos/php-sdk",
-    "description": "PHP SDK for LicenseOS - License validation and activation for PHP applications",
+    "name": "licensesos/php-sdk",
+    "description": "PHP SDK for LicensesOS - License validation and activation for PHP applications",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "LicenseOS Team",
-            "email": "support@licenseos.com"
+            "name": "LicensesOS Team",
+            "email": "support@licensesos.com"
         }
     ],
     "require": {
@@ -19,18 +19,18 @@
     },
     "autoload": {
         "psr-4": {
-            "LicenseOS\\": "src/"
+            "LicensesOS\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LicenseOS\\Tests\\": "tests/"
+            "LicensesOS\\Tests\\": "tests/"
         }
     },
-    "homepage": "https://docs.licenseos.com/sdks/php",
+    "homepage": "https://docs.licensesos.com/sdks/php",
     "support": {
-        "source": "https://github.com/licenseos/php-sdk",
-        "issues": "https://github.com/licenseos/php-sdk/issues"
+        "source": "https://github.com/licensesos/php-sdk",
+        "issues": "https://github.com/licensesos/php-sdk/issues"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

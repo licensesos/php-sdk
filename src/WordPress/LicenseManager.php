@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\WordPress;
+namespace LicensesOS\WordPress;
 
-use LicenseOS\LicenseOsClient;
-use LicenseOS\Cache\LicenseCache;
-use LicenseOS\Cache\WordPressCache;
-use LicenseOS\Results\ValidationResult;
-use LicenseOS\Results\ActivationResult;
-use LicenseOS\Exceptions\ApiException;
-use LicenseOS\Exceptions\NetworkException;
+use LicensesOS\LicensesOsClient;
+use LicensesOS\Cache\LicenseCache;
+use LicensesOS\Cache\WordPressCache;
+use LicensesOS\Results\ValidationResult;
+use LicensesOS\Results\ActivationResult;
+use LicensesOS\Exceptions\ApiException;
+use LicensesOS\Exceptions\NetworkException;
 
 /**
  * WordPress License Manager integration class.
@@ -45,7 +45,7 @@ use LicenseOS\Exceptions\NetworkException;
  */
 abstract class LicenseManager
 {
-    protected ?LicenseOsClient $client = null;
+    protected ?LicensesOsClient $client = null;
     protected ?LicenseCache $licenseCache = null;
     protected ?WordPressCache $cache = null;
 
@@ -66,7 +66,7 @@ abstract class LicenseManager
      */
     protected function getApiBaseUrl(): string
     {
-        return 'https://api.licenseos.com';
+        return 'https://api.licensesos.com';
     }
 
     /**
@@ -91,7 +91,7 @@ abstract class LicenseManager
     public function getSiteIdentifier(): string
     {
         $siteUrl = get_site_url();
-        return LicenseOsClient::normalizeDomain($siteUrl);
+        return LicensesOsClient::normalizeDomain($siteUrl);
     }
 
     /**
@@ -363,10 +363,10 @@ abstract class LicenseManager
     /**
      * Get the API client instance.
      */
-    protected function getClient(): LicenseOsClient
+    protected function getClient(): LicensesOsClient
     {
         if ($this->client === null) {
-            $this->client = new LicenseOsClient(
+            $this->client = new LicensesOsClient(
                 $this->getApiKey(),
                 $this->getApiBaseUrl()
             );

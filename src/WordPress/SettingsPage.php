@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LicenseOS\WordPress;
+namespace LicensesOS\WordPress;
 
 /**
  * WordPress Settings Page helper for license management.
@@ -92,11 +92,11 @@ abstract class SettingsPage
      */
     public function handleFormSubmission(): void
     {
-        if (!isset($_POST['licenseos_action'])) {
+        if (!isset($_POST['licensesos_action'])) {
             return;
         }
 
-        if (!check_admin_referer('licenseos_license_action', 'licenseos_nonce')) {
+        if (!check_admin_referer('licensesos_license_action', 'licensesos_nonce')) {
             return;
         }
 
@@ -104,7 +104,7 @@ abstract class SettingsPage
             return;
         }
 
-        $action = sanitize_text_field($_POST['licenseos_action']);
+        $action = sanitize_text_field($_POST['licensesos_action']);
         $manager = $this->getLicenseManager();
 
         switch ($action) {
@@ -141,7 +141,7 @@ abstract class SettingsPage
 
             <?php $this->renderNotices(); ?>
 
-            <div class="licenseos-license-card" style="background: #fff; padding: 20px; border: 1px solid #ccd0d4; border-radius: 4px; max-width: 600px; margin-top: 20px;">
+            <div class="licensesos-license-card" style="background: #fff; padding: 20px; border: 1px solid #ccd0d4; border-radius: 4px; max-width: 600px; margin-top: 20px;">
                 <?php if ($licenseKey): ?>
                     <?php $this->renderLicenseStatus($licenseKey, $status, $data, $isPremium); ?>
                 <?php else: ?>
@@ -219,16 +219,16 @@ abstract class SettingsPage
 
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
             <form method="post" style="display: inline;">
-                <?php wp_nonce_field('licenseos_license_action', 'licenseos_nonce'); ?>
-                <input type="hidden" name="licenseos_action" value="refresh">
+                <?php wp_nonce_field('licensesos_license_action', 'licensesos_nonce'); ?>
+                <input type="hidden" name="licensesos_action" value="refresh">
                 <button type="submit" class="button">
                     Refresh Status
                 </button>
             </form>
 
             <form method="post" style="display: inline; margin-left: 10px;">
-                <?php wp_nonce_field('licenseos_license_action', 'licenseos_nonce'); ?>
-                <input type="hidden" name="licenseos_action" value="deactivate">
+                <?php wp_nonce_field('licensesos_license_action', 'licensesos_nonce'); ?>
+                <input type="hidden" name="licensesos_action" value="deactivate">
                 <button type="submit" class="button" onclick="return confirm('Are you sure you want to deactivate this license?');">
                     Deactivate License
                 </button>
@@ -247,8 +247,8 @@ abstract class SettingsPage
         <p>Enter your license key to activate premium features.</p>
 
         <form method="post">
-            <?php wp_nonce_field('licenseos_license_action', 'licenseos_nonce'); ?>
-            <input type="hidden" name="licenseos_action" value="activate">
+            <?php wp_nonce_field('licensesos_license_action', 'licensesos_nonce'); ?>
+            <input type="hidden" name="licensesos_action" value="activate">
 
             <table class="form-table" role="presentation">
                 <tr>
